@@ -1,0 +1,32 @@
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        if (s.length() == 0)
+        {
+            return 0;
+        } 
+        int l = 0;
+        for(int i = 0 ; i < s.length() ; i++)
+        {
+            int n = i;
+            String c = "";
+            while(n < s.length())
+            {
+                char ch = s.charAt(n);
+                if(c.indexOf(ch) == -1)
+                {
+                    c+=ch;
+                    n++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            if (c.length() > l)
+            {
+                l = c.length();
+            }
+        } 
+        return l;
+    }
+}
