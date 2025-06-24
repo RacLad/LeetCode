@@ -1,0 +1,38 @@
+class Solution {
+    public String convert(String s, int numRows) {
+        if(numRows == 1){
+            return s;
+        }
+
+        String[] r = new String[numRows];
+
+        for(int i = 0 ; i < numRows ; i++){
+            r[i] = "";
+        }
+        
+        int c = 0 ; 
+        Boolean goingDown = false ;
+
+        for(int i = 0 ; i < s.length() ; i++){
+            char p = s.charAt(i);
+            r[c] =  r[c] + p;
+
+            if(c == 0 || c == numRows -1){
+                goingDown = !goingDown;
+            }
+
+            if(goingDown){
+                c++;
+            }
+            else{
+                c--;
+            } 
+        }
+
+        String rp = "" ;
+        for( int i = 0 ; i < numRows ; i++){
+            rp += r[i];
+        }
+        return rp ;
+    }
+}
